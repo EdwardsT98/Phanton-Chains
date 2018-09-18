@@ -20,6 +20,9 @@ var game = {
         this.elements.push(wall.list[key]);
       }
     }
+    for (var i = 0; i < this.elements.length; i++) {
+    this.elements[i].init();
+  }
     setInterval(this.update.bind(this), 1000/60);
   },
   update: function() {
@@ -28,6 +31,7 @@ var game = {
   render: function() {
     this.context.fillStyle = 'rgba(50, 50, 50, 0.01)';
     this.context.fillRect(this.x, this.y, this.width, this.height);
+    console.log(this.elements);
     for (var i = 0; i < this.elements.length; i++) {
         this.elements[i].render();
       }
