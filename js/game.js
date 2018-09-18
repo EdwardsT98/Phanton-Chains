@@ -12,8 +12,7 @@ var game = {
     this.width = canvas.width;
     this.height = canvas.height;
     this.context = canvas.context;
-    wall.create('top', 0, -980, this.width, 1000);
-    wall.create('bottom', 0, this.height-20, this.width, 1000);
+    this.elements.push(floor);
     wall.create('left', -980, 0, 1000, this.height);
     wall.create('right', this.width-20, 0, 1000, this.height);
     for (var key in wall.list) {
