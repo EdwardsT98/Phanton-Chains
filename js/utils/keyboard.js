@@ -21,5 +21,6 @@ var keyboardEnum = {
   ArrowUp: 'up',
   ArrowLeft: 'left',
   ArrowRight: 'right',
-  KeyP: 'p'
+  KeyP: 'p',
+  Enter: 'enter'
 };
