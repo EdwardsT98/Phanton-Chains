@@ -7,7 +7,7 @@ var player = {
   speed: 3,
   jumpForce: null,
   maxJumpForce: 7,
-  lives: 3,
+  lives: 1,
   checkCollision: function() {
     var i, collisionSide, hasCollisionBottom = false;
     for (i = 0; i < game.elements.length; i++) {
@@ -23,10 +23,9 @@ var player = {
           //game overs when the enemy hits the player from left or right
           if(game.elements[i] === enemy) {
             this.lives--;
-            console.log(this.lives);
-            /*if (this.lives <= 0) {
+            if (this.lives <= 0) {
               game.over();
-            }*/
+            }
           }
           if(collisionSide === 'left' && keyboard.left) {
             //revert left action
@@ -82,6 +81,17 @@ var player = {
   init: function() {
     this.y = floor.y - this.height;
     this.image.src = 'img/sonic.png';
+  },
+  restart: function() {
+    this.x = 100
+    this.y = 0
+    this.width = 31
+    this.height = 39
+    this.image = new Image()
+    this.speed = 3
+    this.jumpForce = null
+    this.maxJumpForce = 7
+    this.lives = 1
   },
   update: function() {
     this.fixNumbers();

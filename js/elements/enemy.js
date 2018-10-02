@@ -5,7 +5,7 @@ var enemy = {
   height: 36,
   image: new Image(),
   speed: 3,
-  direction: 'right',
+  direction: 'left',
   checkCollision: function() {
     var i, collisionSide, hasCollisionBottom = false;
     for (i = 0; i < game.elements.length; i++) {
@@ -34,6 +34,15 @@ var enemy = {
   init: function() {
     this.y = floor.y - this.height;
     this.image.src = 'img/zombie.png';
+  },
+  restart: function() {
+    this.x = 150
+    this.y = 0
+    this.width = 33
+    this.height = 36
+    this.image = new Image()
+    this.speed = 3
+    this.direction = 'left'
   },
   update: function() {
     this.fixNumbers();
