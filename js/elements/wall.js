@@ -7,10 +7,9 @@ var wall = {
       y: y,
       width: width,
       height: height,
-      backgroundColor: "red",
       init: function() { },
       update: function() { },
-      render: function() { Dibujar paredes}
+      render: function() { }
     };
   }
 };

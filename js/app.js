@@ -9,6 +9,8 @@ var resize = function(evt) {
 
 var load = function() {
   resize();
+  document.onkeydown = keyboard.press;
+  document.onkeyup = keyboard.release;
   var canvas = document.getElementById('game');
   var data = {
     x: canvas.offsetLeft,
