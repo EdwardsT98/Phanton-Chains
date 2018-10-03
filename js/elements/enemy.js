@@ -1,11 +1,12 @@
 var enemy = {
-  x: 150,
+  x: 350,
   y: 0,
-  width: 33,
+  width: 31,
   height: 36,
   image: new Image(),
   speed: 3,
   direction: 'left',
+  lives: 1,
   checkCollision: function() {
     var i, collisionSide, hasCollisionBottom = false;
     for (i = 0; i < game.elements.length; i++) {
@@ -36,13 +37,14 @@ var enemy = {
     this.image.src = 'img/zombie.png';
   },
   restart: function() {
-    this.x = 150
+    this.x = 350
     this.y = 0
     this.width = 33
     this.height = 36
     this.image = new Image()
     this.speed = 3
     this.direction = 'left'
+    this.lives = 1
   },
   update: function() {
     this.fixNumbers();

@@ -2,13 +2,15 @@ var player = {
   x: 100,
   y: 0,
   width: 31,
-  height: 39,
+  height: 36,
   image: new Image(),
   speed: 3,
   jumpForce: null,
   maxJumpForce: 7,
   lives: 1,
+  direction: null,
   checkCollision: function() {
+
     var i, collisionSide, hasCollisionBottom = false;
     for (i = 0; i < game.elements.length; i++) {
       collisionSide = collision.boxesSide(player, game.elements[i]);
@@ -57,8 +59,14 @@ var player = {
     //move left and right
     if(keyboard.left) {
       this.x -= this.speed;
+      if(this.direction !== 'left') {
+        this.direction = 'left';
+      }
     } else if(keyboard.right) {
       this.x += this.speed;
+      if(this.direction !== 'right') {
+        this.direction = 'right';
+      }
     }
     //jump
     if(typeof this.jumpForce === 'number') {
@@ -67,6 +75,11 @@ var player = {
         this.jumpForce -= 0.2;
       }
     }
+  },
+  attack: function() {
+  /*  if(keyboard.attack) {
+      if(player.)
+    }*/
   },
   checkJump: function() {
     if(keyboard.up && this.jumpForce === null) {
@@ -92,12 +105,16 @@ var player = {
     this.jumpForce = null
     this.maxJumpForce = 7
     this.lives = 1
+    this.direction = null
   },
   update: function() {
     this.fixNumbers();
     this.checkJump();
     this.move();
     this.checkCollision();
+    this.attack();
+    console.log(collision.boxes(this, enemy));
+
   },
   render: function() {
 

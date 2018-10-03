@@ -112,7 +112,7 @@ var game = {
       this.context.fillRect(this.x, this.y, this.width, this.height);
       switch(this.state) {
         case gameStatesEnum.pause:
-          text.draw('Pausa', '#fff');
+          text.draw('Pause', '#fff');
           break;
         case gameStatesEnum.win:
           text.draw('Nivel superado', '#fff');
