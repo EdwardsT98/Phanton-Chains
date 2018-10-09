@@ -6,7 +6,7 @@ var enemy = {
   image: new Image(),
   speed: 3,
   direction: 'left',
-  lives: 1,
+  lives: 3,
   checkCollision: function() {
     var i, collisionSide, hasCollisionBottom = false;
     for (i = 0; i < game.elements.length; i++) {
@@ -18,6 +18,16 @@ var enemy = {
           this.direction = 'left';
         }
       }
+    }
+  },
+  die: function() {
+    var index = game.elements.indexOf(this);
+    game.elements.splice(index, 1);
+  },
+  recieveAttack: function() {
+    this.lives--;
+    if (this.lives === 0) {
+      this.die();
     }
   },
   move: function() {

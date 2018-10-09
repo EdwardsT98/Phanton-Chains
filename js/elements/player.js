@@ -9,6 +9,7 @@ var player = {
   maxJumpForce: 7,
   lives: 1,
   direction: null,
+  lastStateChange: 0,
   checkCollision: function() {
 
     var i, collisionSide, hasCollisionBottom = false;
@@ -61,11 +62,13 @@ var player = {
       this.x -= this.speed;
       if(this.direction !== 'left') {
         this.direction = 'left';
+        console.log(this.direction);
       }
     } else if(keyboard.right) {
       this.x += this.speed;
       if(this.direction !== 'right') {
         this.direction = 'right';
+        console.log(this.direction);
       }
     }
     //jump
@@ -77,9 +80,18 @@ var player = {
     }
   },
   attack: function() {
-  /*  if(keyboard.attack) {
-      if(player.)
-    }*/
+    if(keyboard.attack && this.lastStateChange > 30) {
+      if((this.direction === 'left'
+      && (this.x - (enemy.x + enemy.width)) <= 300
+      && this.x > (enemy.x + enemy.width))
+      ||
+      (this.direction === 'right'
+      && (enemy.x - (this.x + this.width)) <= 300
+      && (this.x + this.width) < enemy.x)) {
+        enemy.recieveAttack();
+      }
+    this.lastStateChange = 0;
+    }
   },
   checkJump: function() {
     if(keyboard.up && this.jumpForce === null) {
@@ -108,13 +120,12 @@ var player = {
     this.direction = null
   },
   update: function() {
+    this.lastStateChange++;
     this.fixNumbers();
     this.checkJump();
     this.move();
     this.checkCollision();
     this.attack();
-    console.log(collision.boxes(this, enemy));
-
   },
   render: function() {
 
