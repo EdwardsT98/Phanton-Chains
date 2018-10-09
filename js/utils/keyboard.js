@@ -3,6 +3,8 @@ var keyboard = {
   left: false,
   right: false,
   p: false,
+  enter: false,
+  attack: false,
   press: function(evt) {
     var key = keyboardEnum[evt.code];
     if(key) {
@@ -18,9 +20,10 @@ var keyboard = {
 };
 
 var keyboardEnum = {
-  ArrowUp: 'up',
-  ArrowLeft: 'left',
-  ArrowRight: 'right',
+  KeyW: 'up',
+  KeyA: 'left',
+  KeyD: 'right',
   KeyP: 'p',
-  Enter: 'enter'
+  Enter: 'enter',
+  KeyH: 'attack'
 };

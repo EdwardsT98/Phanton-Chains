@@ -1,12 +1,9 @@
 var collision = {
   boxes: function(boxA, boxB) {
-    if(boxA === boxB) {
-      return false;
-    }
     return boxA.x < (boxB.x + boxB.width) &&  //left
       (boxA.x + boxA.width) > boxB.x &&       //right
-      boxA.y < (boxB.y + boxB.height) &&      //top
-      (boxA.y + boxA.height) > boxB.y;        //bottom
+      boxA.y <= (boxB.y + boxB.height) &&      //top
+      (boxA.y + boxA.height) >= boxB.y;        //bottom
   },
   circles: function(circleA, circleB) {
     if(circleA === circleB) {
