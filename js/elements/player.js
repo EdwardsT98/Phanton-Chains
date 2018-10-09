@@ -62,13 +62,11 @@ var player = {
       this.x -= this.speed;
       if(this.direction !== 'left') {
         this.direction = 'left';
-        console.log(this.direction);
       }
     } else if(keyboard.right) {
       this.x += this.speed;
       if(this.direction !== 'right') {
         this.direction = 'right';
-        console.log(this.direction);
       }
     }
     //jump
