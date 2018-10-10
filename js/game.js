@@ -30,15 +30,21 @@ var game = {
       }
     }
     console.log(this.elements);
-    heart.create('h1', this.width*0.4, this.height*0.8);
-    heart.create('h2', this.width*0.7, this.height*0.8);
+    heart.create('heart1', this.width*0.4, this.height*0.8);
+    heart.create('heart2', this.width*0.7, this.height*0.8);
     for (var key in heart.list) {
       if (heart.list.hasOwnProperty(key)) {
         this.elements.push(heart.list[key]);
       }
     }
+    pumpkin.create('pumpkin1', this.width/2, this.height/2)
+    for (var key in pumpkin.list) {
+      if (pumpkin.list.hasOwnProperty(key)) {
+        this.elements.push(pumpkin.list[key]);
+      }
+    }
     this.elements.push(player);
-    this.elements.push(enemy);
+    this.elements.push(skeleton);
     for (var i = 0; i < this.elements.length; i++) {
       this.elements[i].init();
     }
@@ -52,33 +58,39 @@ var game = {
     this.elements.push(floor);
     wall.create('left', -980, 0, 1000, this.height);
     wall.create('right', this.width-20, 0, 1000, this.height);
-    platform.create('platform1', 250, 200, 200, 25);
     for (var key in wall.list) {
       if (wall.list.hasOwnProperty(key)) {
         this.elements.push(wall.list[key]);
       }
     }
+    platform.create('platform1', 100, this.height/1.3, 200, 25);
     for (var key in platform.list) {
       if (platform.list.hasOwnProperty(key)) {
         this.elements.push(platform.list[key]);
       }
     }
-    heart.create('h1', this.width*0.4, this.height*0.8);
-    heart.create('h2', this.width*0.7, this.height*0.8);
+    heart.create('heart1', this.width*0.4, this.height*0.8);
+    heart.create('heart2', this.width*0.7, this.height*0.8);
     for (var key in heart.list) {
       if (heart.list.hasOwnProperty(key)) {
         this.elements.push(heart.list[key]);
       }
     }
+    pumpkin.create('pumpkin1', this.width/2, this.height/2)
+    for (var key in pumpkin.list) {
+      if (pumpkin.list.hasOwnProperty(key)) {
+        this.elements.push(pumpkin.list[key]);
+      }
+    }
+    console.log(pumpkin.list);
     player.restart();
     this.elements.push(player);
-    enemy.restart();
-    this.elements.push(enemy);
+    skeleton.restart();
+    this.elements.push(skeleton);
     for (var i = 0; i < this.elements.length; i++) {
       this.elements[i].init();
     }
     this.lastStateChange = 0;
-    console.log("restart");
   },
   pause: function() {
     if(this.state === gameStatesEnum.pause) {
