@@ -23,8 +23,8 @@ var player = {
       }
       else {
         if(collisionSide) {
-          //game overs when the enemy hits the player from left or right
-          if(game.elements[i] === enemy) {
+          //game overs when the skeleton hits the player from left or right
+          if(game.elements[i] === skeleton) {
             this.lives--;
             if (this.lives <= 0) {
               game.over();
@@ -80,13 +80,13 @@ var player = {
   attack: function() {
     if(keyboard.attack && this.lastStateChange > 30) {
       if((this.direction === 'left'
-      && (this.x - (enemy.x + enemy.width)) <= 300
-      && this.x > (enemy.x + enemy.width))
+      && (this.x - (skeleton.x + skeleton.width)) <= 300
+      && this.x > (skeleton.x + skeleton.width))
       ||
       (this.direction === 'right'
-      && (enemy.x - (this.x + this.width)) <= 300
-      && (this.x + this.width) < enemy.x)) {
-        enemy.recieveAttack();
+      && (skeleton.x - (this.x + this.width)) <= 300
+      && (this.x + this.width) < skeleton.x)) {
+        skeleton.recieveAttack();
       }
     this.lastStateChange = 0;
     }
