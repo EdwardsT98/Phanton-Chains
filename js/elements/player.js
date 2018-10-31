@@ -25,10 +25,7 @@ var player = {
         if(collisionSide) {
           //game overs when the skeleton hits the player from left or right
           if(game.elements[i] === skeleton) {
-            this.lives--;
-            if (this.lives <= 0) {
-              game.over();
-            }
+            this.takeDamage();
           }
           if(collisionSide === 'left' && keyboard.left) {
             //revert left action
@@ -75,6 +72,12 @@ var player = {
       if(this.jumpForce >= -this.maxJumpForce) {
         this.jumpForce -= 0.2;
       }
+    }
+  },
+  takeDamage: function() {
+    player.lives--;
+    if (player.lives <= 0) {
+      game.over();
     }
   },
   attack: function() {
