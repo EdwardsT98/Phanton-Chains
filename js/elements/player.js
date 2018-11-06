@@ -77,6 +77,7 @@ var player = {
   takeDamage: function() {
     player.lives--;
     if (player.lives <= 0) {
+      player.lives = 0;
       game.over();
     }
   },

@@ -29,7 +29,6 @@ var game = {
         this.elements.push(platform.list[key]);
       }
     }
-    console.log(this.elements);
     heart.create('heart1', this.width*0.4, this.height*0.8);
     heart.create('heart2', this.width*0.7, this.height*0.8);
     for (var key in heart.list) {
