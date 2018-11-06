@@ -1,4 +1,7 @@
 var heart = {
+  width: 20,
+  height: 20,
+  image: new Image(),
   list: {},
   create: function(id, x, y) {
     heart.list[id] = {
@@ -8,9 +11,8 @@ var heart = {
       y: y,
       width: 20,
       height: 20,
-      image: new Image(),
       init: function() {
-        this.image.src = 'img/fruit.png';
+        heart.image.src = 'img/fruit.png';
       },
       update: function() { },
       die: function() {
@@ -20,7 +22,7 @@ var heart = {
         delete heart.list[id];
       },
       render: function() {
-        game.context.drawImage(this.image, this.x, this.y, this.width, this.height);
+        game.context.drawImage(heart.image, this.x, this.y, heart.width, heart.height);
       }
     };
   }
