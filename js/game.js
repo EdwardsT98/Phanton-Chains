@@ -42,6 +42,13 @@ var game = {
         this.elements.push(pumpkin.list[key]);
       }
     }
+    tomb.create('tomb1', this.width/2, this.height-tomb.height-floor.height)
+    for (var key in tomb.list) {
+      if (tomb.list.hasOwnProperty(key)) {
+        this.elements.push(tomb.list[key]);
+      }
+    }
+    console.log(this.elements);
     this.elements.push(player);
     this.elements.push(skeleton);
     for (var i = 0; i < this.elements.length; i++) {
@@ -81,7 +88,12 @@ var game = {
         this.elements.push(pumpkin.list[key]);
       }
     }
-    console.log(pumpkin.list);
+    tomb.create('tomb1', this.width/2, this.height-tomb.height)
+    for (var key in tomb.list) {
+      if (tomb.list.hasOwnProperty(key)) {
+        this.elements.push(tomb.list[key]);
+      }
+    }
     player.restart();
     this.elements.push(player);
     skeleton.restart();

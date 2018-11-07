@@ -92,6 +92,15 @@ var player = {
       && (this.x + this.width) < skeleton.x)) {
         skeleton.recieveAttack();
       }
+      else if ((this.direction === 'left'
+      && (this.x - (tomb.x + tomb.width)) <= 300
+      && this.x > (tomb.x + tomb.width))
+      ||
+      (this.direction === 'right'
+      && (tomb.x - (this.x + this.width)) <= 300
+      && (this.x + this.width) < tomb.x)) {
+        tomb.recieveAttack();
+      }
     this.lastStateChange = 0;
     }
   },
